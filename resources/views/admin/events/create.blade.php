@@ -4,6 +4,12 @@
 <div class="container mx-auto px-4 py-6">
     <h2 class="text-2xl font-semibold mb-6 text-white">Add Event</h2>
 
+    @if (session('success'))
+        <div class="mb-6 px-4 py-3 rounded bg-green-600 text-white shadow text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('manage-events.store') }}" enctype="multipart/form-data" class="max-w-lg mx-auto bg-gray-900 p-6 rounded-lg shadow-lg text-gray-200">
         @csrf
 

@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-6">
+
+    @if (session('success'))
+        <div class="mb-4 px-4 py-3 rounded bg-green-600 text-white shadow">
+            {{ session('success') }}
+        </div>
+    @endif
+    
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-semibold text-white">Manage Events</h2>
         <a href="{{ route('manage-events.create') }}" class="bg-purple-600 text-white px-4 py-2 rounded">+ Add Event</a>
