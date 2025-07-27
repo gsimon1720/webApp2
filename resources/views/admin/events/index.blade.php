@@ -34,9 +34,14 @@
                             <span class="text-gray-400">No image</span>
                         @endif
                     </td>
-                    <td class="px-4 py-2">
-                        <a href="{{ route('manage-events.edit', $event->id) }}" class="text-blue-400 hover:underline mr-2">Edit</a>
-                        {{-- Optional: Add Delete Button --}}
+                    <td class="px-4 py-2 flex items-center space-x-2">
+                        <a href="{{ route('manage-events.edit', $event->id) }}" class="text-blue-400 hover:underline">Edit</a>
+
+                        <form action="{{ route('manage-events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
