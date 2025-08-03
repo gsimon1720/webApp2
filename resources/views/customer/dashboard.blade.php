@@ -1,4 +1,4 @@
-@extends('layouts.app') <!-- or your customer layout -->
+@extends('customer.layouts.master') <!-- or your customer layout -->
 
 @section('content')
 <div class="container mx-auto p-6 text-white">
