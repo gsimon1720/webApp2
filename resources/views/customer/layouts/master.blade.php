@@ -13,7 +13,7 @@
         <div class="text-xl font-semibold">Eventify</div>
         <div class="space-x-4">
             <a href="{{ route('customer.dashboard') }}" class="hover:underline">Dashboard</a>
-            <a href="#" class="hover:underline">My Tickets</a>
+            <a href="{{ route('events.index') }}" class="hover:underline">Events</a>
             <a href="#" class="hover:underline">Profile</a>
             <form action="{{ route('logout') }}" method="POST" class="inline">
                 @csrf

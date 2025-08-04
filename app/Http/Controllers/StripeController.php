@@ -39,6 +39,8 @@ class StripeController extends Controller
 
     public function success($eventId)
     {
+
+        $event = Event::findOrFail($eventId);
         // Create a new ticket (simulated after payment)
         $ticket = Ticket::create([
             'user_id' => Auth::id(),
@@ -47,6 +49,10 @@ class StripeController extends Controller
             'ticket_code' => uniqid('TICKET_'),
         ]);
 
-        return redirect()->route('customer.dashboard')->with('success', 'Payment successful! Ticket booked.');
+        return view('stripe.success', [
+        'event' => $event,
+        'ticket' => $ticket,
+        'user' => Auth::user()
+    ]);
     }
 }
