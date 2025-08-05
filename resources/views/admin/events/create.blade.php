@@ -10,6 +10,17 @@
         </div>
     @endif
 
+        @if ($errors->any())
+    <div class="mb-6 px-4 py-3 rounded bg-red-600 text-white shadow">
+        <ul class="list-disc list-inside">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
     <form method="POST" action="{{ route('manage-events.store') }}" enctype="multipart/form-data" class="max-w-lg mx-auto bg-gray-900 p-6 rounded-lg shadow-lg text-gray-200">
         @csrf
 
@@ -18,19 +29,28 @@
             <input type="text" id="title" name="title" 
                 class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600" 
                 placeholder="Enter event title" required />
+                @error('title')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-4">
             <label for="date" class="block mb-2 font-semibold">Date</label>
             <input type="date" id="date" name="date" 
                 class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600" required />
-        </div>
+                @error('date')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
         <div class="mb-4">
             <label for="location" class="block mb-2 font-semibold">Location</label>
             <input type="text" id="location" name="location" 
                 class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600" 
                 placeholder="Enter event location" required />
+                @error('location')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-4">
@@ -38,12 +58,18 @@
             <input type="number" id="price" name="price" step="0.01" min="0" 
                 class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600" 
                 placeholder="Enter event price" required />
+                @error('price')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-4">
             <label for="image" class="block mb-2 font-semibold">Event Image</label>
             <input type="file" id="image" name="image" 
                 class="w-full text-gray-300" />
+                @error('image')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-6">
@@ -51,6 +77,9 @@
             <textarea id="description" name="description" rows="4" 
                 class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600" 
                 placeholder="Write event description..." required></textarea>
+                @error('description')
+                    <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <button type="submit" 

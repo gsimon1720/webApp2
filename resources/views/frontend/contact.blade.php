@@ -15,7 +15,11 @@
             <!-- Contact Form -->
                        <div class="bg-white dark:bg-gray-800 pt-8 pr-8 pb-4 pl-8 rounded-xl shadow-lg" data-aos="fade-right">
   <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a message</h2>
-  <form>
+
+  <div id="successMessage" class="hidden mb-6 px-4 py-3 rounded bg-green-600 text-white shadow text-center">
+  Your message has been sent successfully!
+</div>
+  <form onsubmit="showSuccessMessage(event)">
     <!-- Name -->
     <div class="mb-6">
       <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -81,14 +85,14 @@
                             <i class="fas fa-phone-alt text-blue-600 dark:text-blue-400 text-xl"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Call Us</h3>
-                        <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567<br>Mon-Fri, 9am-5pm PST</p>
+                        <p class="text-gray-600 dark:text-gray-300">{{ $main_settings['site_phone'] }}<br>Mon-Fri, 9am-5pm PST</p>
                     </div>
                     <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 contact-card">
                         <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-envelope text-green-600 dark:text-green-400 text-xl"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email Us</h3>
-                        <p class="text-gray-600 dark:text-gray-300">support@eventify.com<br>help@eventify.com</p>
+                        <p class="text-gray-600 dark:text-gray-300">{{ $main_settings['site_email'] }}<br>help@eventify.com</p>
                     </div>
                     <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 contact-card">
                         <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
@@ -114,19 +118,19 @@
                 <div class="text-center">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Connect With Us</h3>
                     <div class="flex justify-center space-x-6">
-                        <a href="#" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <a href="{{$main_settings['facebook_link']}}" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
                             <i class="fab fa-facebook-f text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <a href="{{$main_settings['twitter_link']}}" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
                             <i class="fab fa-twitter text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <a href="{{$main_settings['instagram_link']}}" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <a href="{{$main_settings['linkedin_link']}}" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
                             <i class="fab fa-linkedin-in text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                        <a href="https://www.youtube.com" class="text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
                             <i class="fab fa-youtube text-2xl"></i>
                         </a>
                     </div>

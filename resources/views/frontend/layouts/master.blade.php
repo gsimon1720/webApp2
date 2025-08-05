@@ -89,7 +89,7 @@
                 <div>
                     <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Eventify</h3>
                     <p class="text-gray-300 text-sm">
-                        The premier platform for virtual event ticketing.
+                        {{$main_settings['site_description']}}
                     </p>
                     <div class="mt-4 flex space-x-6">
                         <a href="{{$main_settings['facebook_link']}}" class="text-gray-400 hover:text-white transition">
@@ -118,7 +118,7 @@
                 <div>
                     <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">About Us</a></li>
+                        <li><a href="{{ route('about') }}" class="text-gray-300 hover:text-white text-sm transition">About Us</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Careers</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Blog</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Press</a></li>
@@ -136,7 +136,7 @@
             </div>
             <div class="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-300 text-sm">
-                    &copy; 2023 Eventify. All rights reserved.
+                    &copy; 2023 {{$main_settings['site_name']}}. All rights reserved.
                 </p>
                 <div class="mt-4 md:mt-0">
                     <p class="text-gray-300 text-sm">
@@ -184,6 +184,16 @@
         });
         
 </script>
+<script>
+  function showSuccessMessage(event) {
+    event.preventDefault(); // Prevent form submission
+    document.getElementById('successMessage').classList.remove('hidden');
+    
+    // Optionally, you can reset the form:
+    event.target.reset();
+  }
+</script>
+
 @stack('scripts')
 </body>
 </html>
