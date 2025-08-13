@@ -58,6 +58,14 @@
                                 <i class="fas fa-boxes mr-3"></i>
                                 Events
                             </a>
+
+                            <!-- Tickets -->
+                            <a href="{{ route('admin.tickets.index') }}" 
+                            class="flex items-center px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-dark-700 rounded-lg group
+                            {{ request()->is('admin/tickets') ? 'bg-dark-700 text-white font-semibold' : '' }}">
+                                <i class="fas fa-ticket-alt mr-3"></i>
+                                Tickets
+                            </a>
                             
                             <!-- Settings -->
                         @can('manage site settings')

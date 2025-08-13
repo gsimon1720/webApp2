@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\Admin\AdminTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,10 @@ Route::middleware(['auth', 'role:admin|staff'])->group(function () {
     Route::resource('manage-events', AdminEventController::class)->parameters([
         'manage-events' => 'event'
     ]);
+});
+
+Route::middleware(['auth', 'role:admin|staff'])->prefix('admin')->group(function () {
+    Route::get('/tickets', [AdminTicketController::class, 'index'])->name('admin.tickets.index');
 });
 
 Route::middleware(['auth', 'role:customer'])->group(function () {
