@@ -40,10 +40,19 @@
                             <p class="mt-1 text-gray-500 dark:text-gray-400">Join artists from around the world in this 24-hour music marathon.</p>
                         </div>
                         <div class="mt-4 flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-900 dark:text-white">$29.99</span>
-                            <button class="text-sm bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
-                                Get Tickets
-                            </button>
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Rs. 1500</span>
+                            <a href="{{ route('eventone') }}">
+                                <button class="text-sm bg-teal-400 hover:bg-coral-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
+                                    View Event
+                                </button>
+                            </a>
+
+                            <a href="{{ route('login') }}">
+                                <button class="text-sm bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
+                                    Get Tickets
+                                </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -68,10 +77,18 @@
                             <p class="mt-1 text-gray-500 dark:text-gray-400">Learn from industry leaders about AI, blockchain and emerging technologies.</p>
                         </div>
                         <div class="mt-4 flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-900 dark:text-white">$99.00</span>
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Rs. 3000</span>
+                            <a href="{{ route('eventtwo') }}">
+                            <button class="text-sm bg-orange-500 hover:bg-orange-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
+                                View Event
+                            </button>
+                            </a>
+
+                            <a href="{{ route('login') }}">
                             <button class="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
                                 Get Tickets
                             </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -96,17 +113,24 @@
                             <p class="mt-1 text-gray-500 dark:text-gray-400">Transform your marketing strategy with actionable insights from experts.</p>
                         </div>
                         <div class="mt-4 flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-900 dark:text-white">$49.99</span>
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Rs. 2500</span>
+                            <a href="{{ route('eventthree') }}">
+                            <button class="text-sm bg-pink-500 hover:bg-pink-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
+                                View Event
+                            </button>
+                            </a>
+                            <a href="{{ route('login') }}">
                             <button class="text-sm bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition duration-300 glow">
                                 Get Tickets
                             </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="500">
-                <a href="#" class="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-300 transform hover:scale-105 glow">
+                <a href="{{ route('events.index') }}" class="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-300 transform hover:scale-105 glow">
                     View All Events
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -187,7 +211,7 @@
                 <a href="/register" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-lg font-medium rounded-md text-purple-700 bg-white hover:bg-gray-50 transition duration-300 transform hover:scale-105">
                     Sign Up Now
                 </a>
-                <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-white text-lg font-medium rounded-md text-white bg-purple-600 bg-opacity-60 hover:bg-opacity-70 transition duration-300 transform hover:scale-105">
+                <a href="{{ route('events.index') }}" class="inline-flex items-center justify-center px-8 py-3 border border-white text-lg font-medium rounded-md text-white bg-purple-600 bg-opacity-60 hover:bg-opacity-70 transition duration-300 transform hover:scale-105">
                     Browse Events
                 </a>
             </div>

@@ -6,10 +6,14 @@
         <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Upcoming Events</h2>
         <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Don't miss out on our exciting events!</p>
     </div>
-        <div class="mt-10 px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+    <div class="mt-10 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-y-14 gap-x-6">
+
+
         @foreach ($events as $event)
-            <div class="event-card bg-white dark:bg-gray-800 rounded-2xl shadow-md p-5">
+            <div class="event-card bg-white dark:bg-gray-800 rounded-2xl shadow-md p-5 
+            transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-xl">
+
                 
                 @if($event->image)
                     <img src="{{ asset('storage/events/' . $event->image) }}" alt="{{ $event->title }}"

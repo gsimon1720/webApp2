@@ -104,4 +104,16 @@ Route::get('/contact', function(){
     return view('frontend.contact');
 })->name('contact');
 
+Route::get('/eventone', function(){
+    return view('customer.eventone');
+})->name('eventone');
+
+Route::get('/eventtwo', function(){
+    return view('customer.eventtwo');
+})->name('eventtwo');
+
+Route::get('/eventthree', function(){
+    return view('customer.eventthree');
+})->name('eventthree');
+
 require __DIR__ . '/auth.php';
