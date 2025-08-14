@@ -109,10 +109,10 @@
                 <div>
                     <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Events</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Upcoming Events</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Past Events</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Popular Events</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Free Events</a></li>
+                        <li><a href="{{ route('events.index') }}" class="text-gray-300 hover:text-white text-sm transition">Upcoming Events</a></li>
+                        <li><a href="{{ route('events.index') }}" class="text-gray-300 hover:text-white text-sm transition">Past Events</a></li>
+                        <li><a href="{{ route('events.index') }}" class="text-gray-300 hover:text-white text-sm transition">Popular Events</a></li>
+                        <li><a href="{{ route('events.index') }}" class="text-gray-300 hover:text-white text-sm transition">Free Events</a></li>
                     </ul>
                 </div>
                 <div>
@@ -127,10 +127,10 @@
                 <div>
                     <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Legal</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Refund Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white text-sm transition">Cookie Policy</a></li>
+                        <li><a href="{{ route('privacy') }}" class="text-gray-300 hover:text-white text-sm transition">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms') }}" class="text-gray-300 hover:text-white text-sm transition">Terms of Service</a></li>
+                        <li><a href="{{ route('refund') }}" class="text-gray-300 hover:text-white text-sm transition">Refund Policy</a></li>
+                        <li><a href="{{ route('cookies') }}" class="text-gray-300 hover:text-white text-sm transition">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>

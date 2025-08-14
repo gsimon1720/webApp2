@@ -65,81 +65,61 @@
                 
                 <!-- Recent Orders -->
                 <div class="bg-dark-800 rounded-lg shadow-lg p-6 mb-6 border border-dark-700">
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-lg font-semibold text-white">Recent Orders</h2>
-                        <a href="#" class="text-sm text-indigo-400 hover:text-indigo-300">View All</a>
-                    </div>
-                    
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-dark-700">
-                            <thead class="bg-dark-700">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Order ID</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Customer</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Date</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Amount</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-dark-800 divide-y divide-dark-700">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#ORD-0001</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">John Smith</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">2023-06-15</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">$125.00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-900 text-green-300">Completed</span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
-                                        <a href="#" class="text-indigo-400 hover:text-indigo-300">View</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#ORD-0002</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Sarah Johnson</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">2023-06-14</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">$89.50</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-900 text-yellow-300">Processing</span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
-                                        <a href="#" class="text-indigo-400 hover:text-indigo-300">View</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#ORD-0003</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Michael Brown</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">2023-06-13</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">$234.75</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-900 text-blue-300">Shipped</span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
-                                        <a href="#" class="text-indigo-400 hover:text-indigo-300">View</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold text-white">Recent Orders</h2>
+        <a href="{{ route('admin.tickets.index') }}" class="text-sm text-indigo-400 hover:text-indigo-300">View All</a>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-dark-700">
+            <thead class="bg-dark-700">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Order ID</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Customer</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Amount</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-dark-800 divide-y divide-dark-700">
+                @forelse($tickets as $ticket)
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                            #{{ $ticket->ticket_code }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            {{ $ticket->user->name ?? '—' }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            {{ $ticket->created_at->format('Y-m-d') }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            ${{ number_format($ticket->price ?? 0, 2) }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            @if(strtolower($ticket->payment_status) === 'paid')
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-900 text-green-300">Completed</span>
+                            @else
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-900 text-red-300">Unpaid</span>
+                            @endif
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            <a href="{{ route('admin.tickets.index', $ticket->id) }}" class="text-indigo-400 hover:text-indigo-300">View</a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" class="px-6 py-4 text-center text-gray-400">
+                            No recent orders found.
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+
                 
-                <!-- Charts Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Sales Chart -->
-                    <div class="bg-dark-800 rounded-lg shadow-lg p-6 border border-dark-700">
-                        <h2 class="text-lg font-semibold text-white mb-4">Sales Overview</h2>
-                        <div class="h-64 bg-dark-700 rounded-md flex items-center justify-center">
-                            <p class="text-gray-500">Chart would be displayed here</p>
-                        </div>
-                    </div>
-                    
-                    <!-- User Activity -->
-                    <div class="bg-dark-800 rounded-lg shadow-lg p-6 border border-dark-700">
-                        <h2 class="text-lg font-semibold text-white mb-4">User Activity</h2>
-                        <div class="h-64 bg-dark-700 rounded-md flex items-center justify-center">
-                            <p class="text-gray-500">Chart would be displayed here</p>
-                        </div>
-                    </div>
-                </div>
+              
 @endsection

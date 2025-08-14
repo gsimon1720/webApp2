@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\Admin\AdminTicketController;
+use App\Models\Ticket;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,12 @@ Route::get('/', function () {
 
 // Authenticated dashboard
 Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+    $tickets = Ticket::with(['user', 'event'])
+        ->latest()
+        ->take(5)
+        ->get();
+
+    return view('admin.dashboard', compact('tickets'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Profile routes
@@ -115,5 +121,21 @@ Route::get('/eventtwo', function(){
 Route::get('/eventthree', function(){
     return view('customer.eventthree');
 })->name('eventthree');
+
+Route::get('/cookies', function(){
+    return view('frontend.cookiepolicy');
+})->name('cookies');
+
+Route::get('/terms', function(){
+    return view('frontend.termsofservice');
+})->name('terms');
+
+Route::get('/privacy', function(){
+    return view('frontend.privacypolicy');
+})->name('privacy');
+
+Route::get('/refund', function(){
+    return view('frontend.refundpolicy');
+})->name('refund');
 
 require __DIR__ . '/auth.php';

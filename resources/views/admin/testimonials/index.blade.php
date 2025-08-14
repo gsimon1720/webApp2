@@ -4,6 +4,14 @@
 <h2>Testimonials</h2>
 <a href="{{ route('testimonials.create') }}" class="btn btn-primary mb-3">Add Testimonial</a>
 
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+
 <table class="table">
     <thead>
         <tr><th>Name</th><th>Role</th><th>Rating</th><th>Actions</th></tr>

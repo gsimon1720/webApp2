@@ -15,7 +15,7 @@
                         {{$slider->paragraph}}
                     </p>
                     <div class="mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="400">
-                        <a href="#" class="px-8 py-3 bg-white text-purple-700 font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 text-center">
+                        <a href="{{ route('events.index') }}" class="px-8 py-3 bg-white text-purple-700 font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 text-center">
                              {{$slider->button_text}}
                         </a>
                         <a href="/register" class="px-8 py-3 bg-purple-500/60 text-white font-medium rounded-lg hover:bg-purple-500/70 transition-all duration-300 transform hover:scale-105 text-center">
